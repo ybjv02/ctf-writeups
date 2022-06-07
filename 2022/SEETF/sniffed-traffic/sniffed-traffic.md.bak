@@ -26,7 +26,7 @@ Extracting the zip file yields the sole file named `stuff`.
 
 Since the file has no extension, I ran the `binwalk` on it, which showed that the file was contained a zip archive.
 
-![image-20220604203942679](.\images\binwalk.png)
+![image-20220604203942679](/\images\binwalk.png)
 
 After extracting the zip file & adding the .zip extension, there was yet again another password prompt. This time however, `fcrackzip` worked, revealing the password `john`. Extracting the zip archive will yield the file `flag.txt` which contains the flag.
 
