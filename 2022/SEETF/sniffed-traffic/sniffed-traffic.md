@@ -10,19 +10,23 @@
 
 Opening `forensics.pcapng` greets us with a substantial amount of packets. Since the description mentioned that the someone downloaded a file, I went to check out `Export Objects -> HTTP` and sure enough, there was a suspicious zip file named `thingamajig.zip`.
 
-![image-20220604201134791](C:\Users\twist\Desktop\SEETF\sniffed-traffic\images\exported-objects.png)
+![image-20220604201134791](images\exported-objects.png)
 
 However, opening the zip file shows that it was encrypted. I tried brute-forcing the password using fcrackzip but to no avail. Thus, I dived back into the pcap file to dig for more clues. Fortunately, filtering for the client's IP address(whom requested for the zip file) reveals that there is some plaintext communication going on.
 
-![image-20220604201754191](C:\Users\twist\Desktop\SEETF\sniffed-traffic\images\filter.PNG)
+![image-20220604201754191](images\filter.PNG)
 
 Naturally, I tracked the communication via `Follow -> TCP Stream`, which revealed the password as shown below.
 
-![image-20220604201913375](C:\Users\twist\Desktop\SEETF\sniffed-traffic\images\follow-stream.png)
+![image-20220604201913375](images\follow-stream.png)
 
-Extracting the zip file yielded the sole file named `stuff`. Since the file has no extension, I ran the `binwalk` on it, which showed that the file was contained a zip archive.
+Extracting the zip file yields the sole file named `stuff`. 
 
-![image-20220604203942679](C:\Users\twist\AppData\Roaming\Typora\typora-user-images\image-20220604203942679.png)
+![zip](images\zip.png)
+
+Since the file has no extension, I ran the `binwalk` on it, which showed that the file was contained a zip archive.
+
+![image-20220604203942679](G:\My Drive\cyber\ctf\ctf-writeups\2022\SEETF\sniffed-traffic\images\binwalk.png)
 
 After extracting the zip file & adding the .zip extension, there was yet again another password prompt. This time however, `fcrackzip` worked, revealing the password `john`. Extracting the zip archive will yield the file `flag.txt` which contains the flag.
 
