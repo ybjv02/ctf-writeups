@@ -196,6 +196,7 @@ unk = "NaRvJT1B/m6AOXL9VDFIbUGkC+sSnzh5jxQ273d4lHPg0wcEpYqruWyfZoM8itKe-"
 b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
 
 def unk_to_b64(s):
+    """map alternative character set to actual base64 character set"""
     res = ""
     for i in range(len(s)):
         pos = unk.find(s[i])
@@ -203,6 +204,7 @@ def unk_to_b64(s):
     return res
 
 def b64_to_ascii(s):
+    """decode base64 string"""
     return base64.b64decode(s.encode()).decode()
 
 def main():
