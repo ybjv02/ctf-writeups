@@ -18,7 +18,7 @@ GvVf+fHWz1tlOkHXUk3kz3bqh4UcFFwgDJmUDWxdDTTGzklgIJ+fXfHUh739+BUEbrmMzGoQOyDIFIz4
 
 ### IDA Analysis
 
-First, I opened `binary` with IDA, revealing the `main_main` function which takes in an input, passes it to `main_Encode` and outputs the encoded string.
+First, I opened `binary` with IDA, revealing the `main_main` function which takes in an input, passes it to `main_Encode` and outputs the encoded input string.
 
 ```c
 // main.main
