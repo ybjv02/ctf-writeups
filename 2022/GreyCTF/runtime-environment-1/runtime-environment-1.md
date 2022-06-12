@@ -52,7 +52,7 @@ void __cdecl main_main()
 }
 ```
 
-Curious about the encoding function, I tried to analyze it but thought twice after seeing the code below:
+Curious about the encoding function, I tried to analyze it but but reconsidered after seeing the lengthy code below:
 
 ```c
 // main.Encode
