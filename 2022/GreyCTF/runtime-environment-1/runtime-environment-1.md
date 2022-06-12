@@ -179,7 +179,7 @@ Cd34+1Tf+yn-
 | homerrr      | s1tw+kmqnj--     |
 | bigdawgg     | Cd34+1Tf+yn-     |
 
-Comparing the outputs, I noticed that there were dashes at the end of some of them, which was similar to how `base64` encoding uses `==` as padding. I hence inferred that `main_Encode` was in fact just base64 encoding utilizing an alternative character set.
+Comparing the outputs, I noticed that there were dashes at the end of some of them, which was similar to how `base64` encoding uses `==` as padding. I hence inferred that `main_Encode` was in fact just base64 using an alternative character set.
 
 ### Solution
 
