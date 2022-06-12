@@ -16,6 +16,8 @@ Contents of `challenge.txt`:
 GvVf+fHWz1tlOkHXUk3kz3bqh4UcFFwgDJmUDWxdDTTGzklgIJ+fXfHUh739+BUEbrmMzGoQOyDIFIz4GvTw+j--
 ```
 
+### Analysis
+
 First, I opened `binary` with IDA, revealing the `main_main` function which takes in an input, passes it to `main_Encode` and outputs the encoded string.
 
 ```c
@@ -175,9 +177,11 @@ Cd34+1Tf+yn-
 | homerrr      | s1tw+kmqnj--     |
 | bigdawgg     | Cd34+1Tf+yn-     |
 
-Comparing the outputs, I noticed that there were dashes at the end of some of them, which was similar to how `base64` encoding uses `==` as padding. This suggested to me that `main_Encode` was just base64 encoding utilizing an alternative character set. To validate my hypothesis, I referenced <a href="https://stackoverflow.com/questions/342409/how-do-i-base64-encode-decode-in-c">this stack overflow post</a>, which showed that base64 also utilizes bitwise shifts `>>` and `& 0x3F`.
+Comparing the outputs, I noticed that there were dashes at the end of some of them, which was similar to how `base64` encoding uses `==` as padding. I hence inferred that `main_Encode` was in fact just base64 encoding utilizing an alternative character set.
 
-Thus, I coded out the following python script, which maps the alternative character set that `binary` uses to the actual base64 character set before decoding it. Something to note is that the flag is actually encoded in multiple layers, so I had to repeat the decoding process multiple times.
+### Solution
+
+This python script maps the alternative character set that `binary` uses to the actual b64 character set, and decodes the b64 string afterwards. Note that the flag is actually encoded in multiple layers, so I had to repeat the decoding process multiple times.
 
 ```python
 """
