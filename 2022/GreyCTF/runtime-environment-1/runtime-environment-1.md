@@ -159,7 +159,7 @@ __int64 __usercall main_Encode@<rax>(__int64 a1, unsigned __int64 a2, __int64 a3
 
 ### Black Box Testing
 
-Since the encoding algorithm looks too lengthy & laborious to reverse, I utilized black box testing in hopes of figuring out how the encoding works instead:
+Since the encoding algorithm looked too lengthy & laborious to reverse, I utilized black box testing in hopes of figuring out how the encoding works instead:
 
 ```bash
 (base) rootyourfuture@kali:~$ /home/kali/Desktop/binary
