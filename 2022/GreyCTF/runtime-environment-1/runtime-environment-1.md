@@ -183,7 +183,7 @@ Comparing the outputs, I noticed that there were dashes at the end of some of th
 
 ### Solution
 
-This python script maps the alternative character set that `binary` uses to the actual b64 character set, and decodes the b64 string afterwards. Note that the flag is actually encoded in multiple layers, so I had to repeat the decoding process multiple times.
+This python script maps the alternative character set that `binary` uses to the actual base64 character set, and decodes the base64 string afterwards. Note that the flag is actually encoded in multiple layers, so the decoding process had to be repeated multiple times.
 
 ```python
 """
