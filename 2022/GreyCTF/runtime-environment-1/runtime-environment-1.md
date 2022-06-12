@@ -16,7 +16,7 @@ Contents of `challenge.txt`:
 GvVf+fHWz1tlOkHXUk3kz3bqh4UcFFwgDJmUDWxdDTTGzklgIJ+fXfHUh739+BUEbrmMzGoQOyDIFIz4GvTw+j--
 ```
 
-### Analysis
+### IDA Analysis
 
 First, I opened `binary` with IDA, revealing the `main_main` function which takes in an input, passes it to `main_Encode` and outputs the encoded string.
 
@@ -54,7 +54,7 @@ void __cdecl main_main()
 }
 ```
 
-Curious about the encoding function, I tried to analyze it but reconsidered after seeing the lengthy code below:
+Curious about the encoding function, I tried to analyze it but reconsidered after seeing the code below:
 
 ```c
 // main.Encode
@@ -157,7 +157,9 @@ __int64 __usercall main_Encode@<rax>(__int64 a1, unsigned __int64 a2, __int64 a3
 }
 ```
 
-Instead, I utilized black box testing in hopes of figuring out how the encoding works:
+### Black Box Testing
+
+Since the encoding algorithm looks too lengthy & laborious to reverse, I utilized black box testing in hopes of figuring out how the encoding works instead:
 
 ```bash
 (base) rootyourfuture@kali:~$ /home/kali/Desktop/binary
@@ -221,4 +223,5 @@ if __name__ == "__main__":
 > 6y+wOyxgzWmCV7tq6WDuV7tbCGY9+duWS2m9n7tqIfm9+4bw
 > +fm3hkwRXBOr+TtBOTalOfm5n2OrOrOrOfu-
 > grey{B4s3d_G0Ph3r_r333333}
+
 Flag: grey{B4s3d_G0Ph3r_r333333}
