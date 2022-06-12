@@ -16,7 +16,7 @@ Contents of `challenge.txt`:
 GvVf+fHWz1tlOkHXUk3kz3bqh4UcFFwgDJmUDWxdDTTGzklgIJ+fXfHUh739+BUEbrmMzGoQOyDIFIz4GvTw+j--
 ```
 
-First, I opened `binary` with IDA, revealing the `main_main` function which takes in an input, passes it to the `main_Encode` function and outputs the encoded input string.
+First, I opened `binary` with IDA, revealing the `main_main` function which takes in an input, passes it to `main_Encode` and outputs the encoded string.
 
 ```c
 // main.main
